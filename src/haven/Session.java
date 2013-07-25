@@ -676,8 +676,10 @@ public class Session {
     }
 	
     public void close() {
-	sworker.interrupt();
-    }
+        ticker.interrupt();
+        rworker.interrupt();
+        sworker.interrupt();
+     }
 	
     public synchronized boolean alive() {
 	return(state != "dead");
